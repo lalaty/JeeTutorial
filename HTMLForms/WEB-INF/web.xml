@@ -11,10 +11,34 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
         </servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>MultipleValueFieldHandlerServlet</servlet-name>
+        <servlet-class>
+            net.ensode.glassfishbook.formhandling.MultipleValueFieldHandlerServlet
+        </servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ResponseRedirectionServlet</servlet-name>
+        <servlet-class>
+            net.ensode.glassfishbook.responseredirection.ResponseRedirectionServlet
+        </servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>FormHandlerServlet</servlet-name>
         <url-pattern>/formhandlerservlet</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>MultipleValueFieldHandlerServlet</servlet-name>
+        <url-pattern>/multiplevaluefieldhandlerservlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+            <servlet-name>ResponseRedirectionServlet</servlet-name>
+            <url-pattern>/responseredirectionservlet</url-pattern>
+        </servlet-mapping>
 
     <welcome-file-list>
         <welcome-file>dataentry.html</welcome-file>
