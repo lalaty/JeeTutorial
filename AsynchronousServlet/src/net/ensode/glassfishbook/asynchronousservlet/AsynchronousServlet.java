@@ -28,24 +28,25 @@ public class AsynchronousServlet extends HttpServlet {
         logger.log(Level.INFO, "--- Entering doGet()");
         final AsyncContext asyncContext = httpServletRequest.startAsync();
         logger.log(Level.INFO, "---- inovking ac.start()");
-        asyncContext.start(new Runnable() {
-            @Override
-            public void run() {
-                logger.log(Level.INFO, "inside thread");
-                try {
-                    //simulate a long running process.
-                    Thread.sleep(10000);
-                } catch (InterruptedException e) {
-                    Logger.getLogger(AsynchronousServlet.class.getName()).log(Level.SEVERE, null, e);
-                }
-                try {
-                    asyncContext.getResponse().getWriter().println("You should see this after a brief wait");
-                    asyncContext.complete();
-                } catch (IOException e) {
-                    Logger.getLogger(AsynchronousServlet.class.getName()).log(Level.SEVERE, null, e);
-                }
-            }
-        });
+        asyncContext.start(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        logger.log(Level.INFO, "inside thread");
+                        try {
+                            //simulate a long running process.
+                            Thread.sleep(10000);
+                        } catch (InterruptedException e) {
+                            Logger.getLogger(AsynchronousServlet.class.getName()).log(Level.SEVERE, null, e);
+                        }
+                        try {
+                            asyncContext.getResponse().getWriter().println("You should see this after a brief wait");
+                            asyncContext.complete();
+                        } catch (IOException e) {
+                            Logger.getLogger(AsynchronousServlet.class.getName()).log(Level.SEVERE, null, e);
+                        }
+                    }
+                });
         logger.log(Level.INFO, "leaving doGet()");
     }
 }
