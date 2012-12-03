@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:useBean id="customer" class="net.ensode.glassfishbook.javabeanproperties.CustomerBean" scope="page"> </jsp:useBean>
-<jsp:setProperty name="customer" property="firstName" param="fNm" />
-<jsp:setProperty name="customer" property="lastName" param="lNm" />
+<jsp:setProperty name="customer" property="*"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
