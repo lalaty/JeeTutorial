@@ -24,9 +24,7 @@ public class CustomTagDemoServlet extends HttpServlet {
         httpServletRequest.setAttribute("address", addressBean);
         try {
             httpServletRequest.getRequestDispatcher("customtags2.jsp").forward(httpServletRequest, httpServletResponse);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
 
